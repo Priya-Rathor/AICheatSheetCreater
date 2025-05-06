@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Wand2, Download, Loader2 } from 'lucide-react';
 import jsPDF from 'jspdf';
+import { handleGenerate } from '../../api/handleGenerate';
 
 export default function CheatSheetApp() {
   const [topic, setTopic] = useState('');
@@ -8,14 +9,8 @@ export default function CheatSheetApp() {
   const [loading, setLoading] = useState(false);
   const [cheatSheet, setCheatSheet] = useState('');
 
-  const handleGenerate = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setCheatSheet(`📘 Cheat Sheet for: ${topic}\n\nPrompt: ${prompt}\n\n🛠️ Functions and Methods:\n- func1()\n- func2()\n...`);
-      setLoading(false);
-    }, 1500);
-  };
-
+  const [response,setResponse] = useState({})
+   
   const handleDownload = () => {
     const doc = new jsPDF();
     doc.setFontSize(12);
@@ -23,6 +18,8 @@ export default function CheatSheetApp() {
     doc.text(lines, 10, 20);
     doc.save(`${topic || 'cheatsheet'}.pdf`);
   };
+
+  console.log("response is",response)
 
   return (
     <div className="h-[calc(100vh-80px)] flex flex-col md:flex-row overflow-hidden">
@@ -63,7 +60,7 @@ export default function CheatSheetApp() {
               className="w-full md:w-2/3 px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
             />
             <button
-              onClick={handleGenerate}
+              onClick={()=>handleGenerate(topic,setResponse)}
               disabled={loading || !topic}
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg flex items-center gap-2 font-medium shadow-md"
             >
