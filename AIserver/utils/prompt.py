@@ -59,3 +59,7 @@ Include the following sections:
 Only generate content. Do not include anything unrelated to the cheat sheet.
 """
     return prompt.strip()
+
+
+
+

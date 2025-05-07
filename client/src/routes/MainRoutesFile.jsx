@@ -9,6 +9,8 @@ import Navigation from '../components/Authentication/Navigation';
 import Home from './Main';
 import AboutUs from '../components/components/About'; 
 import ContactUs from '../components/components/ContactUs';
+import Features from '../components/components/Features';
+import Testimonials from '../components/components/Testimonials';
 
 export default function MainRoutesFile() {
     return (
@@ -21,6 +23,8 @@ export default function MainRoutesFile() {
             <Route path='/home' element={<Home/>} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             </Route>
            </Routes>
             

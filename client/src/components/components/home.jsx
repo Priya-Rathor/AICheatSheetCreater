@@ -79,7 +79,7 @@ export default function CheatSheetApp() {
           {/* Output Card */}
           <div className="bg-white border shadow-xl rounded-xl p-6 mb-10 w-full">
             <h2 className="text-2xl font-bold text-indigo-700 mb-4 text-center">📄 Output Preview</h2>
-            <div className="bg-gray-100 border border-indigo-200 rounded-lg p-4 h-[50vh] overflow-y-auto text-sm whitespace-pre-wrap">
+            <div className="bg-gray-100 border border-indigo-200 rounded-lg p-4 h-[52vh] overflow-y-auto text-sm whitespace-pre-wrap">
               {loading ? (
                 <Loader2 className="animate-spin text-indigo-500 w-8 h-8 mx-auto my-6" />
               ) : cheatSheet ? (
