@@ -1,157 +1,131 @@
-🚀 Project Kickstarter: Full-Stack Starter Template
-Full-Stack
-Authentication
-Ready-to-Use
 
-A lightning-fast starter template to kickstart your full-stack projects with built-in JWT authentication, MongoDB connectivity, and React frontend setup. Stop wasting time on initial configurations and start coding your dream project immediately!
+# 🤖 AICheatSheetCreater
 
-✨ Key Features
-⚡ Zero-config starter - Pre-configured client and server setup
+**AICheatSheetCreater** is an AI-powered web application that allows users to generate customizable cheat sheets on any topic. Built with a modern tech stack including **React** for frontend, **Flask** for backend, and integrated with advanced **AI models**, it enables efficient summarization and organization of complex topics in a clean and printable format.
 
-🔐 JWT Authentication - Ready-to-use auth flow
+---
 
-🗄️ MongoDB Integration - Easy database connectivity
+## 🚀 Features
 
-⚛️ Modern React Frontend - Vite + React 19
+- 🔍 **AI-Powered Topic Understanding** – Uses advanced language models to understand the topic and generate relevant content.
+- 📝 **Custom Cheat Sheet Generator** – Automatically creates concise, structured cheat sheets.
+- 🧠 **Flexible AI Integration** – Plugged into LLMs like OpenAI/Groq/Huggingface for intelligent content generation.
+- 🌐 **Full-Stack App** – Complete with frontend (React + Tailwind), backend (Flask), and database (MongoDB).
+- 🎨 **Responsive UI** – Clean, responsive interface suitable for desktop and mobile.
+- 📁 **Download/Print Option** – Users can download or print their cheat sheets.
 
-🛠️ Essential Packages Included - Axios, React Query, TailwindCSS
+---
 
-🔥 Hot Reloading - Nodemon for server, Vite for client
+## 🧱 Tech Stack
 
-📱 Responsive Ready - Start building for all devices
+| Layer        | Technology               |
+|--------------|--------------------------|
+| Frontend     | React.js, Tailwind CSS   |
+| Backend      | Flask, Flask-CORS        |
+| AI Models    | OpenAI, Groq, Huggingface|
+| Database     | MongoDB                  |
+| Hosting/Dev  | Vite, GitHub             |
 
-🛠️ Setup Guide
-Prerequisites
-Node.js (v18+ recommended)
+---
 
-MongoDB Atlas account or local MongoDB instance
+## 📁 Project Structure
 
-Git (optional)
+```
 
-🖥️ Backend Setup
-Navigate to server directory
+AICheatSheetCreater/
+├── backend/
+│   ├── app.py
+│   ├── routes/
+│   └── models/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── App.jsx
+│   └── public/
+├── .env
+├── requirements.txt
+├── package.json
+└── README.md
 
-bash
-Copy
-cd server
-Create environment file
+````
 
-bash
-Copy
-touch .env
-Add these variables to .env (replace with your values):
+---
 
-env
-Copy
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secure_jwt_secret_key
-PORT=8200
-Install dependencies
+## 🛠️ Installation
 
-bash
-Copy
-npm install --legacy-peer-deps
-Start the server
+### Backend Setup (Flask)
 
-bash
-Copy
-npm run start
-✅ Server should now be running on http://localhost:8200
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+python app.py
+````
 
-💻 Frontend Setup
-Open a new terminal and navigate to client directory
+### Frontend Setup (React)
 
-bash
-Copy
-cd client
-Create environment file
-
-bash
-Copy
-touch .env
-Add this variable to .env:
-
-env
-Copy
-VITE_API_URL=http://localhost:8200
-Install dependencies
-
-bash
-Copy
+```bash
+cd frontend
 npm install
-Start the development server
-
-bash
-Copy
 npm run dev
-🌐 Client should now be running (check terminal for exact port, typically 5173)
+```
 
-📦 Included Technologies
-Backend Stack
-Package	Version	Purpose
-Express	^4.21.2	Server framework
-Mongoose	^8.13.1	MongoDB ODM
-JWT	^9.0.2	Authentication
-Bcrypt	^3.0.2	Password hashing
-CORS	^2.8.5	Cross-origin requests
-Dotenv	^16.4.7	Environment variables
-Frontend Stack
-Package	Version	Purpose
-React	^19.0.0	UI Library
-Vite	^6.2.0	Build tool
-React Query	^5.71.0	Data fetching
-Axios	^1.8.4	HTTP client
-TailwindCSS	Latest	Utility-first CSS
-Lucide Icons	^0.485.0	Beautiful icons
-🏗️ Project Structure
-fullstack-starter/
-├── client/               # React frontend
-│   ├── public/           # Static assets
-│   └── src/              # React components
-│       ├── auth/         # Authentication context
-│       ├── api/          # API service calls
-│       └── pages/        # Route pages
-│
-└── server/              # Node.js backend
-    ├── controllers/      # Route controllers
-    ├── models/           # MongoDB models
-    ├── routes/           # API endpoints
-    └── middleware/      # Auth middleware
-🚀 Getting Started with Development
-Clone the repository (if you haven't already)
+---
 
-bash
-Copy
-git clone your-repo-url
-Install dependencies for both client and server (as shown above)
+## 🔑 Environment Variables
 
-Start both servers in separate terminals:
+Create a `.env` file in the backend with:
 
-Server: npm run start (from /server)
+```env
+OPENAI_API_KEY=your_openai_key
+MONGO_URI=your_mongodb_uri
+```
 
-Client: npm run dev (from /client)
+---
 
-Begin coding! The template includes:
+## 🔗 API Endpoints
 
-Basic user authentication routes
+| Method | Endpoint       | Description                        |
+| ------ | -------------- | ---------------------------------- |
+| POST   | `/generate`    | Generate cheat sheet from topic    |
+| POST   | `/feedback`    | Submit feedback on generated sheet |
+| GET    | `/healthcheck` | Check API health                   |
 
-React context setup
+---
 
-API service examples
+## 🎯 Use Cases
 
-Responsive layout starter
+* Study preparation for students
+* Quick tech reference for developers
+* Interview prep with structured summaries
+* Note-taking assistant for researchers
 
-💡 Pro Tips
-Use npm install --legacy-peer-deps if you encounter peer dependency issues
+---
 
-For MongoDB, we recommend MongoDB Atlas for a free cloud database
+## 🧪 Testing
 
-Customize the .env files with your own secure values
+Use Postman or Curl:
 
-The server runs on port 8200 by default, change in .env if needed
+```bash
+curl -X POST http://localhost:5000/generate -H "Content-Type: application/json" -d '{"topic": "LLMs"}'
+```
 
-🤝 Contributing
-Feel free to fork this project and customize it for your needs! If you've made improvements that could benefit others, consider opening a pull request.
+---
 
-📄 License
-This project is open-source and available under the MIT License.
+## 🙋‍♀️ Author
+
+**Priya Rathor**
+📬 [GitHub Profile](https://github.com/Priya-Rathor)
+
+---
+
+## 📌 Future Improvements
+
+* [ ] Add topic-specific formatting templates
+* [ ] Export to PDF feature
+* [ ] User authentication and save history
+* [ ] Multilingual cheat sheet generation
+
+---
